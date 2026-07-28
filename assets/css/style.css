@@ -109,11 +109,11 @@ ul,ol{margin:0; padding:0; list-style:none}
   backdrop-filter:saturate(150%) blur(10px);
   border-bottom:1px solid var(--line-dark);
 }
-.header__inner{display:flex; align-items:center; gap:24px; height:86px; transition:height .25s ease}
-.header.is-stuck .header__inner{height:70px}
+.header__inner{display:flex; align-items:center; gap:24px; height:112px; transition:height .25s ease}
+.header.is-stuck .header__inner{height:88px}
 .brand{display:block; flex:0 0 auto}
-.brand img{height:50px; width:auto; transition:height .25s ease}
-.header.is-stuck .brand img{height:42px}
+.brand img{height:78px; width:auto; transition:height .25s ease}
+.header.is-stuck .brand img{height:60px}
 
 .nav{margin-left:auto; display:flex; align-items:center; gap:30px}
 .nav a{
@@ -433,9 +433,9 @@ ul,ol{margin:0; padding:0; list-style:none}
   body{font-size:16.5px}
   .topbar__item{display:none}
   .topbar__inner{justify-content:flex-end}
-  .header__inner{height:72px}
-  .brand img{height:38px}
-  .header.is-stuck .brand img{height:34px}
+  .header__inner{height:84px}
+  .brand img{height:52px}
+  .header.is-stuck .brand img{height:44px}
 
   .hero{padding-block:56px 64px}
   .hero__mark{right:-90px; width:70vw; opacity:.07}

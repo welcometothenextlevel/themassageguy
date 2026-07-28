@@ -24,19 +24,19 @@ assets/img/           logo lockup, logo mark and favicon (keyed out of the suppl
 | | |
 |---|---|
 | Phone | 0437 679 615 |
-| Email | Troy@mymassageguy.com.au |
+| Email | troy@mymassageguy.com.au |
 | Hours | Monday – Friday, 9am – 5pm |
 | Remedial | $100 / 60 min · $65 / 30 min |
 | Relaxation | $100 / 60 min |
 | Sports taping | price on enquiry |
-| Clinic | Albury, NSW (street address not published) |
+| Clinic | 1 Hayden Way, Glenroy NSW 2640 |
 | Mobile | Albury, Wodonga, Wangaratta and surrounds |
 
 ## Notes
 
 - The booking form has no backend: it opens the visitor's mail client with the enquiry
-  pre-filled and addressed to `Troy@mymassageguy.com.au`. Swapping in a form service
+  pre-filled and addressed to `troy@mymassageguy.com.au`. Swapping in a form service
   (Formspree, Netlify Forms, etc.) is a one-line change in `assets/js/main.js`.
-- Structured data (`schema.org/HealthAndBeautyBusiness`) is in the `<head>` for local SEO.
-  Update the clinic street address there once it is public.
+- Structured data (`schema.org/HealthAndBeautyBusiness`) is in the `<head>` for local SEO,
+  including the clinic address.
 - Fonts are loaded from Google Fonts (Barlow Condensed + Inter).

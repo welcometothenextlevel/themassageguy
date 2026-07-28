@@ -109,7 +109,7 @@
       ].join('\n');
 
       window.location.href =
-        'mailto:Troy@mymassageguy.com.au' +
+        'mailto:troy@mymassageguy.com.au' +
         '?subject=' + encodeURIComponent('Booking enquiry — ' + v('name')) +
         '&body=' + encodeURIComponent(body);
     });
