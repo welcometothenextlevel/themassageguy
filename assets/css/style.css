@@ -383,6 +383,33 @@ ul,ol{margin:0; padding:0; list-style:none}
 /* ── Mobile call button ────────────────────────────────────── */
 .call-fab{display:none}
 
+/* ── WhatsApp widget ───────────────────────────────────────── */
+.wa-fab{
+  position:fixed; right:26px; bottom:26px; z-index:65;
+  display:flex; align-items:center; gap:12px;
+  text-decoration:none;
+}
+.wa-fab__btn{
+  display:grid; place-items:center; flex:0 0 auto;
+  width:60px; height:60px; border-radius:50%;
+  background:#25d366;
+  box-shadow:0 14px 34px rgba(1,7,23,.4), 0 0 0 1px rgba(255,255,255,.10) inset;
+  transition:transform .22s ease, background .22s ease;
+}
+.wa-fab__btn svg{width:31px; height:31px; fill:#fff}
+.wa-fab:hover .wa-fab__btn{background:#1fb457; transform:translateY(-2px)}
+.wa-fab__label{
+  background:var(--navy-800); color:#fff;
+  font-family:var(--display); font-size:15px; font-weight:600;
+  letter-spacing:.13em; text-transform:uppercase; white-space:nowrap;
+  padding:11px 18px; border:1px solid var(--line-dark); border-radius:var(--radius);
+  box-shadow:0 12px 30px rgba(1,7,23,.35);
+  opacity:0; transform:translateX(8px); pointer-events:none;
+  transition:opacity .22s ease, transform .22s ease;
+}
+.wa-fab:hover .wa-fab__label,
+.wa-fab:focus-visible .wa-fab__label{opacity:1; transform:none}
+
 /* ── Reveal on scroll ──────────────────────────────────────── */
 .reveal{opacity:0; transform:translateY(22px)}
 .reveal.is-in{opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.22,.8,.3,1)}
@@ -491,15 +518,21 @@ ul,ol{margin:0; padding:0; list-style:none}
   .footer__inner{grid-template-columns:1fr; gap:34px}
   .footer__base{flex-direction:column; gap:6px}
 
-  /* Sticky call bar on phones */
+  /* Sticky call bar on phones — sits beside the WhatsApp button */
   .call-fab{
-    position:fixed; left:16px; right:16px; bottom:16px; z-index:70;
+    position:fixed; left:16px; right:86px; bottom:calc(16px + env(safe-area-inset-bottom));
+    z-index:70; height:56px;
     display:flex; align-items:center; justify-content:center; gap:10px;
     background:var(--blue); color:#fff; text-decoration:none;
     font-family:var(--display); font-size:18px; font-weight:600;
     letter-spacing:.16em; text-transform:uppercase;
-    padding:15px; border-radius:var(--radius);
+    padding:0 15px; border-radius:var(--radius);
     box-shadow:0 14px 34px rgba(1,7,23,.45);
   }
   .call-fab svg{width:19px; height:19px; fill:currentColor}
+
+  .wa-fab{right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:70}
+  .wa-fab__btn{width:56px; height:56px; border-radius:var(--radius)}
+  .wa-fab__btn svg{width:29px; height:29px}
+  .wa-fab__label{display:none}
 }
