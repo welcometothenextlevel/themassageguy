@@ -373,6 +373,12 @@ ul,ol{margin:0; padding:0; list-style:none}
   font-size:13.5px; color:#6f7e97;
 }
 .footer__base p{margin:0}
+.footer__credit a{
+  color:#a8b6cd; text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.22); padding-bottom:1px;
+  transition:color .2s ease, border-color .2s ease;
+}
+.footer__credit a:hover{color:#fff; border-bottom-color:var(--blue)}
 
 /* ── Mobile call button ────────────────────────────────────── */
 .call-fab{display:none}
