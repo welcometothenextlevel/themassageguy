@@ -14,22 +14,42 @@
   onScroll();
 
   /* Mobile menu ------------------------------------------------------------ */
-  var closeNav = function () {
-    nav.classList.remove('is-open');
-    burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Open menu');
-    document.body.classList.remove('nav-open');
-  };
+  var scrollY = 0;
 
-  burger.addEventListener('click', function () {
-    var open = nav.classList.toggle('is-open');
+  var setNav = function (open) {
+    nav.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    document.body.classList.toggle('nav-open', open);
+
+    /* Lock the page behind the panel — iOS Safari ignores overflow:hidden
+       on the body, so pin it with position:fixed and restore the offset. */
+    if (open) {
+      scrollY = window.scrollY;
+      document.body.style.top = -scrollY + 'px';
+      document.body.classList.add('nav-open');
+    } else if (document.body.classList.contains('nav-open')) {
+      document.body.classList.remove('nav-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollY);
+    }
+  };
+
+  var closeNav = function () { setNav(false); };
+
+  burger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setNav(!nav.classList.contains('is-open'));
   });
 
   nav.addEventListener('click', function (e) {
     if (e.target.closest('a')) closeNav();
+  });
+
+  /* Tap anywhere outside the panel to close it */
+  document.addEventListener('click', function (e) {
+    if (!nav.classList.contains('is-open')) return;
+    if (nav.contains(e.target) || burger.contains(e.target)) return;
+    closeNav();
   });
 
   document.addEventListener('keydown', function (e) {
